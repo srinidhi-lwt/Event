@@ -6,7 +6,9 @@
 			.col-sm-6
 				h2 = article.title
 				h4 = article.description
-				ul.article-btn.pull-right
-					li = link_to 'Edit', edit_article_path(article)
-					li = link_to 'Delete', article, method: :delete
+				- if user_signed_in?
+					ul.article-btn.pull-right
+						li = link_to 'Edit', edit_article_path(article)
+						li = link_to 'Delete', article, method: :delete
+				end
 	end
