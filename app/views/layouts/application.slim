@@ -34,9 +34,6 @@ html
           end
           - if current_user == User.first
             li = link_to 'New Article', new_article_path, class: 'navbar-text'
-  .notice 
-    = notice
-  .alert
-    = alert
 
+  = flash_messages
 = yield

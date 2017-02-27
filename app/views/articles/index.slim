@@ -8,7 +8,7 @@
 				h4 = article.description
 				- if user_signed_in?
 					ul.article-btn.pull-right
-						li = link_to 'Edit', edit_article_path(article)
-						li = link_to 'Delete', article, method: :delete
+						li = link_to 'Edit', edit_article_path(article), class: 'btn btn-primary'
+						li = link_to 'Delete', article, method: :delete, class: 'btn btn-danger'
 				end
 	end
