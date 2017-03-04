@@ -1,15 +1,11 @@
 class PackagesController < ApplicationController
-	before_action :find_package, only: [:show]
 
 	def index
+		service_id = Service.where(name: params[:service]).first.id
+		occasion_id = Occasion.where(name: params[:occasion]).first.id
+		@packages = Package.where(service_id: service_id, occasion_id: occasion_id)
 	end
 
 	def show
-	end
-
-	private
-
-	def find_package
-		@package = Package.find(params[:id])
 	end
 end

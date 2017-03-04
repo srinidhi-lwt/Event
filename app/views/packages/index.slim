@@ -1,0 +1,6 @@
+.container
+	- @packages.each do |package|
+		h2 = package.name
+		h2 = package.price
+		h3 = package.user.email
+	end
