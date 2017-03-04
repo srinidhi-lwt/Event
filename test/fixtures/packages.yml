@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  occasion_id: 1
+  service_id: 1
+  user_id: 1
+
+two:
+  occasion_id: 1
+  service_id: 1
+  user_id: 1

@@ -1,0 +1,5 @@
+.container
+	- @occasions.each do |occasion|
+		h2 = link_to occasion.name, occasion
+		h4 = occasion.guest_size
+	end

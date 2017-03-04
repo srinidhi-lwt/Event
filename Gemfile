@@ -16,6 +16,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
+gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin'
 
 gem "slim-rails"
 # Use jquery as the JavaScript library

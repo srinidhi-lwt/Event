@@ -1,0 +1,11 @@
+.container
+	.row
+		.col-xs-12.text-center.well
+			h2 = @occasion.name
+		.col-xs-12.text-center
+			h3 Services Available
+	- @services.each do |service|
+		.col-xs-6.text-center
+			= link_to 'View Package', '#', class: 'btn btn-primary pull-right'
+			h4 = service.name
+	end
