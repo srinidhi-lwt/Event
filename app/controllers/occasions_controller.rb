@@ -1,4 +1,5 @@
 class OccasionsController < ApplicationController
+	before_action :authenticate_user!, except: [:index]
 	before_action :find_occasion, only: [:show]
 
 	def index

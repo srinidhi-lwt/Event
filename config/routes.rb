@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :articles
   resources :occasions
   resources :packages
+  get '/select-date-for-planner' => 'packages#select_date_for_package'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

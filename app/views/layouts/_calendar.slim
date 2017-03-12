@@ -1,0 +1,8 @@
+.calendar-planner.text-center class=("is-opened" if current_page?(select_date_for_planner_path))
+	= link_to 'X', :back, class: 'calendar-close pull-right'
+	.available-dates Available
+	.blocked-dates NOT Available
+
+	= month_calendar do |date|
+		 - is_blocked = @package_blocked_dates.detect { |blocked_date| blocked_date == date }
+	 	 = link_to date.day, '#', class: is_blocked.present? ? 'is-blocked' : 'is-available' 

@@ -15,4 +15,8 @@ module ApplicationHelper
     end
     nil
   end
+
+  def previous_month
+    link_to 'Hi', root_path
+  end
 end

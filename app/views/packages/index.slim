@@ -1,6 +1,10 @@
 .container
+	= link_to 'View All Packages', packages_path, class: 'btn btn-primary'
+
 	- @packages.each do |package|
 		h2 = package.name
 		h2 = package.price
-		h3 = package.user.email
+		/ h3 = package.user.email
+		h4 = package.occasion.name + ' - ' + package.service.name
+		= link_to 'Add to Planner', select_date_for_planner_path(package: package.id), class: 'btn btn-primary add-planner'
 	end

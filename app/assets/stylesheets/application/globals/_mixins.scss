@@ -1,0 +1,22 @@
+@mixin responsive-property($prop, $values) {
+  #{$prop}: map-get($values, 'xs');
+
+  @media (min-width: $screen-sm-min) {
+    #{$prop}: map-get($values, 'sm');
+  }
+
+  @media (min-width: $screen-md-min) {
+    #{$prop}: map-get($values, 'md');
+  }
+
+  @media (min-width: $screen-lg-min) {
+    #{$prop}: map-get($values, 'lg');
+  }
+}
+
+@mixin transform($value) {
+  -webkit-transform: $value;
+      -ms-transform: $value; // IE9 only
+       -o-transform: $value;
+          transform: $value;
+}

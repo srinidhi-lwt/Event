@@ -6,6 +6,7 @@ class CreatePackages < ActiveRecord::Migration
       t.integer :user_id
       t.string :name
       t.string :price
+      t.string :block_dates
 
       t.timestamps null: false
     end

@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20170304180419) do
     t.integer  "user_id"
     t.string   "name"
     t.string   "price"
+    t.string   "block_dates"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
