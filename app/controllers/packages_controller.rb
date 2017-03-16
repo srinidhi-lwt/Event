@@ -17,4 +17,8 @@ class PackagesController < ApplicationController
 		package = Package.find(params[:package])
 		@package_blocked_dates = package.block_dates.map { |date| date.to_datetime }
 	end
+
+	def planner
+		@package = Package.find(params[:package])
+	end
 end
