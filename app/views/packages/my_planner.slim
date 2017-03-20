@@ -1,0 +1,7 @@
+.container
+	.row
+		h1 My Planner
+		- @orders.each do |order|
+			h2 = order.package.name
+			h4 = order.is_confirmed? ? 'Confirmed' : 'Yet To be Confirmed'
+		end

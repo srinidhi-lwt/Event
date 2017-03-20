@@ -1,0 +1,9 @@
+.container
+	.row
+		h2 = @package.name
+		h4 = @package.occasion.name +  '-' + @package.service.name 
+		h4 = @package.price
+		.col-sm-1
+			= link_to 'Confirm', place_order_path(package: @package.id), method: :post, class: 'btn btn-success'
+		.col-sm-1
+			= link_to 'Go to Packages', '#', class: 'btn btn-danger'

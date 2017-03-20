@@ -1,0 +1,22 @@
+.container
+	.row
+		.col-sm-3
+			ul#dealer-dashboard
+				.spacer-xs-30
+				li = link_to 'Orders', '#'
+				.spacer-xs-30
+				li = link_to 'Packages', '#'
+				.spacer-xs-30
+				li = link_to 'New Package', '#' 
+				.spacer-xs-30
+				li = link_to 'Block Dates', '#'
+				.spacer-xs-30
+
+		.col-sm-9
+			h2 Orders
+			- @packages.each do |package|
+				h2 = package.name
+				- package.orders.each do |order|
+					h4 = order.user.email
+				end
+			end	

@@ -11,8 +11,12 @@ Rails.application.routes.draw do
   resources :articles
   resources :occasions
   resources :packages
+
   get '/select-date-for-planner' => 'packages#select_date_for_package'
-  get '/planner' => 'packages#planner'
+  get '/add-to-planner' => 'packages#add_to_planner'
+  get '/my-planner' => 'packages#my_planner'
+  post '/place-order' => 'packages#place_order'
+  get 'dashboard' => 'dealers#dashboard'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

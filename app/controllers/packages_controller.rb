@@ -1,5 +1,4 @@
 class PackagesController < ApplicationController
-
 	def index
 		if params[:service].nil?
 			@packages = Package.all
@@ -10,6 +9,16 @@ class PackagesController < ApplicationController
 		end
 	end
 
+	def new
+		@package = Package.new
+	end
+
+	def create
+		@package = Package.new(package_params)
+		@package.save
+		redirect_to packages_path
+	end
+
 	def show
 	end
 
@@ -18,7 +27,29 @@ class PackagesController < ApplicationController
 		@package_blocked_dates = package.block_dates.map { |date| date.to_datetime }
 	end
 
-	def planner
+	def add_to_planner
 		@package = Package.find(params[:package])
+	end
+
+	def place_order
+		package = Package.find(params[:package])
+		order = Order.new(user_id: current_user.id, package_id: package.id)
+		if order.save
+			redirect_to my_planner_path
+			flash[:success] = 'The order for this package has been successfully placed'
+		else
+			flash[:alert] = 'This Package has been already taken by you'
+			redirect_to packages_path
+		end
+	end
+
+	def my_planner
+		@orders = Order.where(user_id: current_user.id)
+	end
+	
+	private
+
+	def package_params
+		params.require(:package).permit(:name, :occasion_id, :service_id, :price)
 	end
 end
