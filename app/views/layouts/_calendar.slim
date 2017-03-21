@@ -5,4 +5,4 @@
 
 	= month_calendar do |date|
 		- is_blocked = @package_blocked_dates.detect { |blocked_date| blocked_date == date }
-	 	= link_to date.day, add_to_planner_path(package: params[:package]), class: is_blocked.present? ? 'is-blocked' : 'is-available'
+	 	= link_to date.day, add_to_planner_path(package: params[:package], booking_date: date), class: is_blocked.present? ? 'is-blocked' : 'is-available'

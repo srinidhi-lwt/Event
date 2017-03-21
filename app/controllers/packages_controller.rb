@@ -35,8 +35,8 @@ class PackagesController < ApplicationController
 		package = Package.find(params[:package])
 		order = Order.new(user_id: current_user.id, package_id: package.id)
 		if order.save
-			redirect_to my_planner_path
 			flash[:success] = 'The order for this package has been successfully placed'
+			redirect_to my_planner_path
 		else
 			flash[:alert] = 'This Package has been already taken by you'
 			redirect_to packages_path
