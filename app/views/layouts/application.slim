@@ -28,7 +28,7 @@ html
             li 
               = link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'navbar-text'
               = link_to 'My Planner', my_planner_path, class: 'navbar-text'
-              = link_to 'Dashboard', new_package_path, class: 'navbar-text' if current_user.is_dealer?
+              = link_to 'Dashboard', dashboard_path, class: 'navbar-text' if current_user.is_dealer?
               = link_to 'New Article', new_article_path, class: 'navbar-text' if current_user.is_author?
           - else
             li = link_to 'Log in', new_user_session_path, class: 'navbar-text'

@@ -1,0 +1,18 @@
+.container
+	h2 = "Block date for package #{@package.name}"
+.calendar-planner.text-center
+	= link_to 'X', :back, class: 'calendar-close pull-right'
+	.available-dates Available
+	.blocked-dates NOT Available
+
+	= month_calendar do |date|
+		
+	 	= link_to date.day, '#', class: 'block-date'
+	 	.get-date.hide
+	 		= date
+
+	= simple_form_for '', url: update_block_date_path do |f|
+		= f.input :block_date
+		= f.input :package, input_html: { value: @package.id }
+		= f.button :submit, 'Confirm', class: 'btn btn-primary'
+	end

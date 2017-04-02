@@ -1,0 +1,6 @@
+.container
+	.row
+		.col-sm-6
+			- @packages.each do |package|
+				h3 = package.name
+				= link_to 'Block Date', block_date_path(package: package), class: 'btn btn-danger'

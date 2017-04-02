@@ -1,14 +1,13 @@
 $calendar-size: 600px;
 
 .calendar-planner {
-	@include size(600, 300);
+	@include size(600px, 300px);
 	@include transition(transform 0.35s ease-in-out);
 
 	background: lightgray;
-	transform: translateY(- $calendar-size);
-	position: fixed;
 	left: 50%;
 	margin-left: -1 * $calendar-size/2;
+	position: fixed;
 
 	&.is-opened {
 		transform: translateY(0);
@@ -30,6 +29,6 @@ a {
 
 .is-blocked {
 	background: red;
-	padding: 5px;
 	color: white;
+	padding: 5px;
 }

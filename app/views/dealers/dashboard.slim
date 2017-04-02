@@ -1,22 +1,35 @@
 .container
 	.row
 		.col-sm-3
-			ul#dealer-dashboard
+			ul#dealer-dashboard role="tablist"
 				.spacer-xs-30
-				li = link_to 'Orders', '#'
+				li role='presentation'
+					= link_to 'Orders', '#ios', data: { toggle: 'tab' }, role: 'tab'
 				.spacer-xs-30
-				li = link_to 'Packages', '#'
+				li role="presentation" 
+					= link_to 'Packages', '#android', data: { toggle: 'tab' }, role: 'tab'
 				.spacer-xs-30
-				li = link_to 'New Package', '#' 
+				li 
+					= link_to 'New Package', new_package_path
 				.spacer-xs-30
-				li = link_to 'Block Dates', '#'
+				li
+					= link_to 'Block Dates', block_date_for_package_path
 				.spacer-xs-30
 
 		.col-sm-9
-			h2 Orders
-			- @packages.each do |package|
-				h2 = package.name
-				- package.orders.each do |order|
-					h4 = order.user.email
-				end
-			end	
+			.tab-content
+			 	#ios.tab-pane.active role='tabpanel'
+					h2 Orders
+					- @packages.each do |package|
+						h2 = package.name
+						- package.orders.each do |order|
+							h4 = order.user.email
+							h4 = order.date_reserved
+						end
+					end
+
+			 	#android.tab-pane role='tabpanel'
+			 		h2 My Packages
+					- @packages.each do |package|
+						h2 = package.name
+					end

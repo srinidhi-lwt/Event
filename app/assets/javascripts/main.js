@@ -5,4 +5,17 @@ $(function() {
 		var date = $(this).html();
 		alert(date + " " +  "th is not available");
 	});
+
+	var blockedDates = []
+
+	$('.block-date').click(function(e) {
+		e.preventDefault();
+
+		var date = $(this).siblings('.get-date').html();
+		
+		if (confirm("Are you sure to block" + " " + date )) {
+			blockedDates.push(date);
+			$('#_block_date').val(blockedDates);
+		}
+	});
 })

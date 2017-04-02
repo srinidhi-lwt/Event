@@ -1,4 +1,6 @@
 .container
+	= link_to 'Back', :back
+	.spacer-xs-30
 	= simple_form_for @package do |f|
 		= f.input :name
 		= f.input :occasion_id, as: :select, collection: Occasion.all, prompt: 'Please choose the Occasion'

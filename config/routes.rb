@@ -16,7 +16,12 @@ Rails.application.routes.draw do
   get '/add-to-planner' => 'packages#add_to_planner'
   get '/my-planner' => 'packages#my_planner'
   post '/place-order' => 'packages#place_order'
-  get 'dashboard' => 'dealers#dashboard'
+  get '/dashboard' => 'dealers#dashboard'
+  get 'block_date_for_package' => 'dealers#block_date_for_package'
+  get '/block_date' => 'dealers#block_date'
+  get '/my-packages' => 'dealers#my_packages'
+  post '/update_block_date' => 'dealers#update_block_date'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
