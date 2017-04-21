@@ -15,6 +15,7 @@ class PackagesController < ApplicationController
 
 	def create
 		@package = Package.new(package_params)
+		Cloudinary::Uploader.upload(params[:package][:avatar])
 		@package.save
 		redirect_to packages_path
 	end
@@ -50,6 +51,6 @@ class PackagesController < ApplicationController
 	private
 
 	def package_params
-		params.require(:package).permit(:name, :occasion_id, :service_id, :price)
+		params.require(:package).permit(:name, :occasion_id, :service_id, :price, :avatar)
 	end
 end

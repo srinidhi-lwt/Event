@@ -5,3 +5,11 @@ body {
 ::-webkit-input-placeholder {
 	text-align: center;
 }
+
+input[type="checkbox"] {
+	top: 4px;
+}
+
+.is-background {
+	background: #CFB53B;	
+}

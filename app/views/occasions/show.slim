@@ -1,11 +1,15 @@
 .container
 	.row
-		.col-xs-12.text-center.well
+		.col-xs-12.text-center
 			h2 = @occasion.name
 		.col-xs-12.text-center
 			h3 Services Available
-	- @services.each do |service|
-		.col-xs-6.text-center
-			= link_to 'View Package', packages_path(service: service.name, occasion: @occasion.name), class: 'btn btn-primary pull-right'
-			h4 = service.name
+		- @services.each_slice(3) do |services|
+			.row
+				- services.each do |service|
+					.col-sm-4.occasion-content
+						.text-center
+							= image_tag service.avatar if service.avatar?
+							h3 = service.name
+							h2 = link_to "View Package", packages_path(service: service.name, occasion: @occasion.name), class: 'btn btn-success'
 	end

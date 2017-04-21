@@ -4,7 +4,7 @@ class OccasionsController < ApplicationController
 	before_action :find_occasion, only: [:show]
 
 	def index
-		@occasions = Occasion.all
+		@occasions = Occasion.all.order(created_at: :asc)
 	end
 
 	def show
@@ -18,6 +18,6 @@ class OccasionsController < ApplicationController
 	end
 
 	def occasion_params
-		params.permit(:occasion).permit(:name, :guest_size)
+		params.permit(:occasion).permit(:name, :guest_size,)
 	end
 end

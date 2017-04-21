@@ -1,10 +1,16 @@
 .container
-	= link_to 'View All Packages', packages_path, class: 'btn btn-primary'
-
-	- @packages.each do |package|
-		h2 = package.name
-		h2 = package.price
-		/ h3 = package.user.email
-		h4 = package.occasion.name + ' - ' + package.service.name
-		= link_to 'Add to Planner', select_date_for_planner_path(package: package.id), class: 'btn btn-primary add-planner'
-	end
+	.spacer-xs-30
+	= link_to 'View All Packages', packages_path, class: 'btn btn-success'
+	.spacer-xs-30
+	- @packages.each_slice(3) do |packages|
+		.row
+			- packages.each do |package|
+				.col-sm-4.occasion-content
+					.text-center
+						= image_tag package.avatar
+						h2 = package.name
+						h2 = package.price
+						/ h3 = package.user.email
+						h4 = package.occasion.name + ' - ' + package.service.name
+						= link_to 'Add to Planner', select_date_for_planner_path(package: package.id), class: 'btn btn-success add-planner'
+					end

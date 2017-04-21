@@ -1,5 +1,5 @@
 ActiveAdmin.register Occasion do
-	permit_params :name, :guest_size
+	permit_params :name, :guest_size, :avatar
 
   index do
     selectable_column
@@ -18,6 +18,7 @@ ActiveAdmin.register Occasion do
     f.inputs "Occasion" do
       f.input :name
       f.input :guest_size
+      f.input :avatar, as: :file
     end
     f.actions
   end

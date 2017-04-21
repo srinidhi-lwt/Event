@@ -15,6 +15,11 @@ gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jbuilder', '~> 2.0'
 
+# Upload
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
+gem 'cloudinary'
+
 # Database
 gem 'pg'
 

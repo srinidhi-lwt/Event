@@ -14,6 +14,22 @@ $calendar-size: 600px;
 	}
 }
 
+.simple-calendar {
+	padding: 30px;
+
+	.table-striped > tbody > tr {
+		background: #D3D3D3;
+	}
+}
+
+.previous-link {
+	float: left;
+}
+
+.next-link {
+	float: right;
+}
+
 a {
 	text-decoration: none;
 

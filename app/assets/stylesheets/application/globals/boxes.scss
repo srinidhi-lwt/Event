@@ -3,6 +3,10 @@
   box-shadow: 0 0 80px rgba(61, 64, 80, 0.2);
   width: 50%;
 
+  &.is-padding {
+  	padding: 30px;
+  }
+
   input {
   	margin: 0 auto;
   	width: 50%;

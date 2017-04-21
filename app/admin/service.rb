@@ -1,5 +1,5 @@
 ActiveAdmin.register Service do
-	permit_params :name, :description
+	permit_params :name, :description, :avatar
 
   index do
     selectable_column
@@ -18,6 +18,7 @@ ActiveAdmin.register Service do
     f.inputs "Service" do
       f.input :name
       f.input :description
+      f.input :avatar, as: :file
     end
     f.actions
   end

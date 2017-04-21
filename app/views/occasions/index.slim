@@ -1,5 +1,10 @@
 .container
-	- @occasions.each do |occasion|
-		h2 = link_to occasion.name, occasion
-		h4 = occasion.guest_size
-	end
+	.spacer-sm-50
+	- @occasions.each_slice(3) do |occasions|
+		.row
+			- occasions.each do |occasion|
+				.col-sm-4.occasion-content
+					.text-center
+						= image_tag occasion.avatar if occasion.avatar?
+						h2 = link_to occasion.name, occasion, class: 'btn btn-success'
+			end

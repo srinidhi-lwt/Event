@@ -12,10 +12,7 @@ html
 
     = csrf_meta_tags
 
-
-    body.animate-in
-
-  body
+  body class=('is-background' if user_signed_in?)
     .navbar.navbar-default
       .container
         .navbar-header
