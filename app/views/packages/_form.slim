@@ -1,5 +1,6 @@
 .container
-	= link_to 'Back', :back
+	.spacer-xs-30
+	= link_to 'Back', :back, class: 'text-uppercase link-type-1'
 	.spacer-xs-30
 	= simple_form_for @package do |f|
 		= f.input :name

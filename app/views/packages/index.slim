@@ -7,7 +7,9 @@
 			- packages.each do |package|
 				.col-sm-4.occasion-content
 					.text-center
-						= image_tag package.avatar
+						- package.avatar.each do |avatar_url|
+							= cl_image_tag avatar_url
+						end
 						h2 = package.name
 						h2 = package.price
 						/ h3 = package.user.email

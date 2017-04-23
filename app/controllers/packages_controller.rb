@@ -14,8 +14,9 @@ class PackagesController < ApplicationController
 	end
 
 	def create
-		@package = Package.new(package_params)
-		Cloudinary::Uploader.upload(params[:package][:avatar])
+		@package = current_user.packages.build(package_params)
+		@package.user_id = current_user.id
+		cloudinary_avatar_upload(@package) if params[:package][:avatar].present?
 		@package.save
 		redirect_to packages_path
 	end
@@ -51,6 +52,11 @@ class PackagesController < ApplicationController
 	private
 
 	def package_params
-		params.require(:package).permit(:name, :occasion_id, :service_id, :price, :avatar)
+		params.require(:package).permit(:name, :occasion_id, :service_id, :price, :user_id)
+	end
+
+	def cloudinary_avatar_upload(package)
+		cloudinary_hash = Cloudinary::Uploader.upload(params[:package][:avatar])
+		package.avatar << cloudinary_hash['public_id']
 	end
 end

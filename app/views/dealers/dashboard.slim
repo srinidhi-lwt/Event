@@ -3,18 +3,17 @@
 		.col-sm-3
 			ul#dealer-dashboard role="tablist"
 				.spacer-xs-30
-				li role='presentation'
+				li.dashboard-static-tab
+					= link_to 'Dashboard', '#'
+				.spacer-xs-20
+				li.active role="presentation"
 					= link_to 'Orders', '#ios', data: { toggle: 'tab' }, role: 'tab'
-				.spacer-xs-30
-				li role="presentation" 
+				li role="presentation"
 					= link_to 'Packages', '#android', data: { toggle: 'tab' }, role: 'tab'
-				.spacer-xs-30
 				li 
 					= link_to 'New Package', new_package_path
-				.spacer-xs-30
 				li
 					= link_to 'Block Dates', block_date_for_package_path
-				.spacer-xs-30
 
 		.col-sm-9
 			.tab-content

@@ -1,0 +1,20 @@
+#dealer-dashboard {
+	padding: 0;
+
+	li {
+		background: #fff;
+		border-bottom: 1px solid #ccc;
+
+		a {
+			color: #000;
+			display: block;
+			padding: 20px;
+			font-size: 18px;
+		}
+
+		&.active a, &.dashboard-static-tab a {
+			background-color: #b22222;
+			color: white;
+		}
+	}
+}

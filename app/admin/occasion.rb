@@ -1,5 +1,6 @@
 ActiveAdmin.register Occasion do
-	permit_params :name, :guest_size, :avatar
+	permit_params :name, :guest_size
+  before_action :cloudinary_upload, only: :create
 
   index do
     selectable_column
@@ -13,6 +14,15 @@ ActiveAdmin.register Occasion do
   filter :name
   filter :guest_size
   filter :created_at
+
+  controller do
+    def cloudinary_upload
+      cloudinary_hash = Cloudinary::Uploader.upload(params[:occasion][:avatar]) if params[:occasion][:avatar].present?
+      byebug
+      avatar << cloudinary_hash['public_id']
+    end
+  end
+
 
   form do |f|
     f.inputs "Occasion" do

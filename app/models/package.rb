@@ -7,6 +7,7 @@ class Package < ActiveRecord::Base
 	belongs_to :service
 
 	serialize :block_dates, Array
+	serialize :avatar, Array
 
-	mount_uploader :avatar, AvatarUploader
+	# mount_uploader :avatar, AvatarUploader
 end
