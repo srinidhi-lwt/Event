@@ -19,3 +19,25 @@ input[type="checkbox"] {
 		width: 100%;
 	}
 }
+
+.occasion-hover-content {
+	position: relative;
+
+	.navigate-btn {
+		@include transition(opacity 1s);
+
+		opacity: 0;
+	}
+}
+
+.navigate-btn {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+
+.show-btn {
+	.navigate-btn {
+		opacity: 1;
+	}
+}

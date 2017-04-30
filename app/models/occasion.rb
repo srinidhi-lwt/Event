@@ -1,8 +1,6 @@
 class Occasion < ActiveRecord::Base
-	has_many :packages
+	has_many :packages, dependent: :destroy	
 	has_many :services, through: :packages
-
-	# mount_uploader :avatar, AvatarUploader
 	
 	serialize :avatar, Array
 

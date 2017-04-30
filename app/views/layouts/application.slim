@@ -15,20 +15,21 @@ html
   body class=('is-background' if user_signed_in?)
     .navbar.navbar-default
       .container
-        .navbar-header
-          = link_to  'Events Made Easy', root_path, class: 'navbar-brand'
+        = link_to  root_path, class: 'navbar-brand text-uppercase' do
+          = image_tag 'logo.png'
+        .navbar-text.text-uppercase Eventz Made Easy
         ul.pull-right.header-navigation
           li
-            = link_to 'Sign Up', new_user_registration_path, class: 'navbar-text' unless user_signed_in?
-            = link_to 'Blog', articles_path, class: 'navbar-text'
+            = link_to 'Sign Up', new_user_registration_path, class: 'navbar-text text-uppercase' unless user_signed_in?
+            = link_to 'Blog', articles_path, class: 'navbar-text text-uppercase'
           - if user_signed_in?
             li 
-              = link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'navbar-text'
-              = link_to 'My Planner', my_planner_path, class: 'navbar-text'
-              = link_to 'Dashboard', dashboard_path, class: 'navbar-text' if current_user.is_dealer?
-              = link_to 'New Article', new_article_path, class: 'navbar-text' if current_user.is_author?
+              = link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'navbar-text text-uppercase'
+              = link_to 'My Planner', my_planner_path, class: 'navbar-text text-uppercase'
+              = link_to 'Dashboard', dashboard_path, class: 'navbar-text text-uppercase' if current_user.is_dealer?
+              = link_to 'New Article', new_article_path, class: 'navbar-text text-uppercase' if current_user.is_author?
           - else
-            li = link_to 'Log in', new_user_session_path, class: 'navbar-text'
+            li = link_to 'Log in', new_user_session_path, class: 'navbar-text text-uppercase'
           end
             
   = flash_messages

@@ -4,8 +4,22 @@ li {
 
 .navbar {
 	margin-bottom: 0;
+	background-color: #b22222;
+	border: 0;
 }
 
 .header-navigation li {
 	display: inline-block;
+}
+
+.navbar-default {	
+	.navbar-text, .navbar-brand {
+		color: #ffff00;
+		font-size: 18px;
+	}
+
+	.navbar-brand img {
+		height: 130px;
+		margin-left: -70px;
+	}
 }

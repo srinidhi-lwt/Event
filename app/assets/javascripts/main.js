@@ -18,4 +18,14 @@ $(function() {
 			$('#_block_date').val(blockedDates);
 		}
 	});
+
+	$('.occasion-hover-content').hover(function(e) {
+		$('.occasion-hover-content').removeClass('show-btn');
+		$(this).addClass('show-btn');
+		$btn = $(this).find('a');
+		$height = $btn.height();
+		$width = $btn.width();
+		$btn.css('margin-top', - $height / 2);
+		$btn.css('margin-left', - $width / 2);
+	});
 })

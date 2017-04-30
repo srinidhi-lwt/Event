@@ -1,10 +1,10 @@
 $calendar-size: 600px;
 
 .calendar-planner {
-	@include size(600px, 300px);
+	@include size(600px, 330px);
 	@include transition(transform 0.35s ease-in-out);
 
-	background: lightgray;
+	background: #b22222;
 	left: 50%;
 	margin-left: -1 * $calendar-size/2;
 	position: fixed;
@@ -15,10 +15,30 @@ $calendar-size: 600px;
 }
 
 .simple-calendar {
-	padding: 30px;
+	padding: 14px 30px;
+	color: #ffff00;
+	font-weight: bolder;
+
+	.table > thead > tr > th {
+		color: #ffff00;
+	}
 
 	.table-striped > tbody > tr {
 		background: #D3D3D3;
+	}
+
+	.table > tbody > tr > td {
+		padding: 0;
+		border: 3px solid #000;
+	}
+}
+
+.previous-link, .next-link {
+	color: #ffff00;
+	font-size: 22px;
+
+	&:hover, &:focus {
+		color: #0000ff;
 	}
 }
 
@@ -32,19 +52,20 @@ $calendar-size: 600px;
 
 a {
 	text-decoration: none;
+	display: block;
+	padding: 10px;
 
 	&:hover, &:focus {
 		text-decoration: none;
+		color: white;
 	}
 }
 .is-available {
 	background: green;
 	color: white;
-	padding: 5px;
 }
 
 .is-blocked {
 	background: red;
 	color: white;
-	padding: 5px;
 }

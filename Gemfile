@@ -14,6 +14,7 @@ gem 'turbolinks'
 gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jbuilder', '~> 2.0'
+gem 'font-awesome-rails'
 
 # Upload
 gem 'carrierwave', '~> 1.0'

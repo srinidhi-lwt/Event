@@ -98,6 +98,8 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     execjs (2.7.0)
+    font-awesome-rails (4.7.0.1)
+      railties (>= 3.2, < 5.1)
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
     formtastic_i18n (0.6.0)
@@ -259,6 +261,7 @@ DEPENDENCIES
   cloudinary
   coffee-rails (~> 4.1.0)
   devise
+  font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
   mini_magick

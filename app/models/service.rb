@@ -1,6 +1,6 @@
 class Service < ActiveRecord::Base
-	has_many :packages
+	has_many :packages, dependent: :destroy	
 	has_many :occasions, through: :packages
 
-	mount_uploader :avatar, AvatarUploader
+	serialize :avatar, Array
 end

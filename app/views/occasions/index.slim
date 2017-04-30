@@ -4,7 +4,9 @@
 		.row
 			- occasions.each do |occasion|
 				.col-sm-4.occasion-content
-					.text-center
-						= image_tag occasion.avatar if occasion.avatar?
-						h2 = link_to occasion.name, occasion, class: 'btn btn-success'
+					.text-center.occasion-hover-content
+						- occasion.avatar.each do |avatar_url|
+							= cl_image_tag avatar_url
+						end
+						= link_to occasion.name, occasion, class: 'btn btn-success navigate-btn'
 			end

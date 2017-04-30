@@ -1,4 +1,23 @@
-.container
+/ .left-bar
+/ .right-bar
+/ .container
+/ 	#myCarousel.carousel.slide data-ride="carousel" 
+/ 	  ol.carousel-indicators
+/ 	    li.active data-slide-to="0" data-target="#myCarousel" 
+/ 	    li data-slide-to="1" data-target="#myCarousel" 
+/ 	  .carousel-inner role="listbox" 
+/ 	    .item.active
+/ 	      img src="http://res.cloudinary.com/dnweu15bn/image/upload/v1493052987/xow5hfb1cm7nsewazgfo.jpg" /
+/ 	    .item
+/ 	      img src="http://res.cloudinary.com/dnweu15bn/image/upload/v1492799137/nzztm2wzg4v0xcc2j4kv.jpg" /
+/ 	  a.left.carousel-control data-slide="prev" href="#myCarousel" role="button" 
+/ 	    span.glyphicon.glyphicon-chevron-left aria-hidden="true" 
+/ 	    span.sr-only Previous
+/ 	  a.right.carousel-control data-slide="next" href="#myCarousel" role="button" 
+/ 	    span.glyphicon.glyphicon-chevron-right aria-hidden="true" 
+/ 	    span.sr-only Next
+
+
 	.row
 		.col-xs-12.text-center
 			h2 = @occasion.name
@@ -9,7 +28,9 @@
 				- services.each do |service|
 					.col-sm-4.occasion-content
 						.text-center
-							= image_tag service.avatar if service.avatar?
+							- service.avatar.each do |avatar_url|
+								= cl_image_tag avatar_url
+							end
 							h3 = service.name
 							h2 = link_to "View Package", packages_path(service: service.name, occasion: @occasion.name), class: 'btn btn-success'
 	end
