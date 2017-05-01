@@ -48,6 +48,9 @@ class PackagesController < ApplicationController
 	def my_planner
 		@orders = Order.where(user_id: current_user.id)
 	end
+
+	def ratings
+	end
 	
 	private
 

@@ -8,4 +8,5 @@ class User < ActiveRecord::Base
   has_many :articles, dependent: :destroy	
   has_many :orders, dependent: :destroy	
   has_many :packages, through: :orders
+  has_many :ratings, dependent: :destroy
 end

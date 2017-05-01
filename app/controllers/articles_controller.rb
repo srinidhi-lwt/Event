@@ -12,6 +12,7 @@ class ArticlesController < ApplicationController
 
 	def create
 		@article = current_user.articles.build(article_params)
+		cloudinary_avatar_upload(@article) if params[:article][:avatar].present?
 		@article.save
 
 		redirect_to articles_path
@@ -43,5 +44,10 @@ class ArticlesController < ApplicationController
 
 	def find_article
 		@article = Article.find(params[:id])
+	end
+
+	def cloudinary_avatar_upload(article)
+		cloudinary_hash = Cloudinary::Uploader.upload(params[:article][:avatar])
+		article.avatar << cloudinary_hash['public_id']
 	end
 end
