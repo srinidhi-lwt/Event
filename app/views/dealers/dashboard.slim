@@ -24,6 +24,7 @@
 						- package.orders.each do |order|
 							h4 = order.user.email
 							h4 = order.date_reserved
+							= link_to 'Confirm Order', confirm_order_path(order: order.id), method: :post, class: 'btn-success text-center'
 						end
 					end
 

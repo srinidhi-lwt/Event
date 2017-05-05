@@ -32,6 +32,17 @@ class DealersController < ApplicationController
 		@packages = current_user.packages
 	end
 
+	def confirm_order
+		order = Order.find(params[:order])
+		order.is_confirmed = true
+		if order.save
+			flash[:success] = 'The Order has been confirmed by you'
+		else
+			flash[:alert] = 'Dear Dealer, We couldn\'t process your request'
+		end
+		redirect_to dashboard_path
+	end
+
 	private
 
 	def is_dealer?
