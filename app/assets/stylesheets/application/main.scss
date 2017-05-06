@@ -14,30 +14,50 @@ input[type="checkbox"] {
 	background: #CFB53B;	
 }
 
-.occasion-content {
+.column-content {
 	img {
 		width: 100%;
 	}
 }
 
-.occasion-hover-content {
+.column-hover-content {
 	position: relative;
 
-	.navigate-btn {
+	.display-avatar { 
 		@include transition(opacity 1s);
 
-		opacity: 0;
+		cursor: pointer;
+		padding: 0;
+
+		&:hover {
+			opacity: 0.3;
+		}
 	}
 }
 
 .navigate-btn {
+	@include transition(opacity 1s, background-color 1s, color 1s, transform 0.5s);
+
+	background-color: #b22222;
+	bottom: 0;
+	color: #ffff00;
+	left: 0;
+	opacity: 0;
 	position: absolute;
-	top: 50%;
-	left: 50%;
+	right: 0;
+	transform: translateY(45px);
+	pointer-events: none;
+
+	&:hover {
+		background-color: #ffffff;
+		color: #b22222;
+	}
 }
 
 .show-btn {
 	.navigate-btn {
 		opacity: 1;
+		transform: translateY(0);
+		pointer-events: auto;
 	}
 }

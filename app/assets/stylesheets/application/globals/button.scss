@@ -1,0 +1,20 @@
+.btn-firebrick {
+	background: #b22222;
+	color: #ffff00;
+	text-transform: uppercase;
+
+	&:hover, &:active {
+		background: #ffffff;
+		color: #b22222;
+	}
+}
+
+.btn-cancel {
+	background: #000080;
+	color: #fff;
+
+	&:hover, &:active {
+		background: #ffffff;
+		color: #b22222;
+	}
+}

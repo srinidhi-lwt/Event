@@ -1,18 +1,20 @@
 .container
 	.spacer-xs-30
-	= link_to 'View All Packages', packages_path, class: 'btn btn-success'
+	= link_to 'View All Packages', packages_path, class: 'btn btn-firebrick pull-right' 
 	.spacer-xs-30
 	- @packages.each_slice(3) do |packages|
 		.row
 			- packages.each do |package|
-				.col-sm-4.occasion-content
-					.text-center
+				.col-sm-4.column-content
+					.text-center.column-hover-content
 						- package.avatar.each do |avatar_url|
-							= cl_image_tag avatar_url
+							= link_to package, class: 'display-avatar'
+								= cl_image_tag avatar_url
 						end
-						h2 = package.name
-						h2 = package.price
-						/ h3 = package.user.email
-						h4 = package.occasion.name + ' - ' + package.service.name
-						= link_to 'Add to Planner', select_date_for_planner_path(package: package.id), class: 'btn btn-success add-planner'
+						/ h2 = package.name
+						/ h2 = package.price
+						/ / h3 = package.user.email
+						/ h4 = package.occasion.name + ' - ' + package.service.name
+						= link_to 'View Package', package, class: 'navigate-btn'
+						/ = link_to 'Add to Planner', select_date_for_planner_path(package: package.id), class: 'btn btn-lg add-planner navigate-btn'
 					end

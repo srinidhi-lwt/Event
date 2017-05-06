@@ -18,13 +18,24 @@
 		.col-sm-9
 			.tab-content
 			 	#ios.tab-pane.active role='tabpanel'
-					h2 Orders
+			 		.spacer-sm-40
+			 		table.table.table-type-1.text-uppercase
+			 			tr 
+			 				th Number of Orders
+			 				- orders = @packages.map { |package| package.orders.count } 
+			 				th = orders.sum
 					- @packages.each do |package|
-						h2 = package.name
-						- package.orders.each do |order|
-							h4 = order.user.email
-							h4 = order.date_reserved
-							= link_to 'Confirm Order', confirm_order_path(order: order.id), method: :post, class: 'btn-success text-center'
+						table.table.table-striped
+							tr
+								th Package Name
+								th = package.name
+							- package.orders.each do |order|
+								tr
+									th = order.user.email
+									th = order.date_reserved
+								- if !order.is_confirmed?
+									tr
+										th = link_to 'Confirm Order', confirm_order_path(order: order.id), method: :post, class: 'btn-firebrick text-center'
 						end
 					end
 

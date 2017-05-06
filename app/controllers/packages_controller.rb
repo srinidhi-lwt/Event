@@ -22,6 +22,7 @@ class PackagesController < ApplicationController
 	end
 
 	def show
+		@package = Package.find(params[:id])
 	end
 
 	def select_date_for_package

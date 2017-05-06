@@ -3,10 +3,12 @@
 	- @occasions.each_slice(3) do |occasions|
 		.row
 			- occasions.each do |occasion|
-				.col-sm-4.occasion-content
-					.text-center.occasion-hover-content
+				.col-sm-4.column-content
+					.text-center.column-hover-content
 						- occasion.avatar.each do |avatar_url|
-							= cl_image_tag avatar_url
+							= link_to occasion, class: 'display-avatar'
+								= cl_image_tag avatar_url
 						end
-						= link_to occasion.name, occasion, class: 'btn btn-success navigate-btn'
+						= link_to occasion.name, occasion, class: 'btn btn-lg navigate-btn text-uppercase'
 			end
+		.spacer-sm-50

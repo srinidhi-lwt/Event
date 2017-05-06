@@ -1,7 +1,30 @@
 .container
-	.row
-		h1 My Planner
-		- @orders.each do |order|
-			h2 = order.package.name
-			h4 = order.is_confirmed? ? 'Confirmed' : 'Yet To be Confirmed'
-		end
+	h1 My Planner
+	- @orders.each do |order|
+		.row
+			.col-sm-6.column-content
+				- order.package.avatar.each do |avatar_url|
+					= cl_image_tag avatar_url
+			end
+
+			.col-sm-6
+				table.table.table-striped.text-uppercase
+					tr
+						th Package Name
+						th = order.package.name
+					tr
+						th Occasion
+						th = order.package.occasion.name
+					tr 
+						th Service
+						th = order.package.service.name
+					tr 
+						th Price
+						th = order.package.price
+					tr 
+						th Booking Date
+						th = order.date_reserved
+					tr 
+						th Status
+						th = order.is_confirmed? ? 'Confirmed' : 'Yet to be Confirmed' 
+		.spacer-sm-50

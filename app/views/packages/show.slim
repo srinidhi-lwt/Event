@@ -1,0 +1,12 @@
+.container
+	.spacer-sm-50
+	.row
+		.col-sm-6.column-content
+			.column-hover-content
+				- @package.avatar.each do |avatar_url|
+					= link_to select_date_for_planner_path(package: @package.id), class: 'display-avatar'
+						= cl_image_tag avatar_url
+				= link_to 'Add to Planner', select_date_for_planner_path(package: @package.id), class: 'btn btn-lg navigate-btn'
+		.col-sm-6
+			.text-firebrick 
+				h2 = @package.name

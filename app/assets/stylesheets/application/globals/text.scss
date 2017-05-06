@@ -1,0 +1,23 @@
+.text-firebrick {
+	color: #ffff00;
+	text-transform: uppercase;
+
+	-webkit-text-stroke: 1px #b22222;
+  text-shadow:
+   	3px 3px 0 #b22222,
+    -1px -1px 0 #b22222,  
+    1px -1px 0 #b22222,
+    -1px 1px 0 #b22222,
+    1px 1px 0 #b22222;
+}
+
+.text-type-1 {
+	background: #b22222;
+	padding: 10px;
+	color: #ffff00;
+	text-transform: uppercase;
+}
+
+.text-type-2 {
+	@extend .text-type-1;
+}

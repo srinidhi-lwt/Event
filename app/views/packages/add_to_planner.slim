@@ -1,10 +1,26 @@
 .container
+	.spacer-sm-50
 	.row
-		h2 = @package.name
-		h4 = @package.occasion.name +  '-' + @package.service.name 
-		h4 = @package.price
-		h4 = params[:booking_date]
-		.col-sm-1
-			= link_to 'Confirm', place_order_path(package: @package.id), method: :post, class: 'btn btn-success'
-		.col-sm-1
-			= link_to 'Go to Packages', '#', class: 'btn btn-danger'
+		.col-sm-6.column-content
+			- @package.avatar.each do |avatar_url|
+				= cl_image_tag avatar_url
+		.col-sm-6.text-center
+			table.table.table-striped.text-uppercase
+				tr
+					th Package Name
+					th = @package.name
+				tr
+					th Occasion
+					th = @package.occasion.name
+				tr 
+					th Service
+					th = @package.service.name
+				tr 
+					th Price
+					th = @package.service.name
+				tr 
+					th Booking Date
+					th = params[:booking_date]
+
+			= link_to 'Confirm', place_order_path(package: @package.id), method: :post, class: 'btn btn-firebrick btn-block'
+			= link_to 'Go to Packages', '#', class: 'btn btn-cancel btn-block text-uppercase'
