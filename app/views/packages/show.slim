@@ -10,3 +10,41 @@
 		.col-sm-6
 			.text-firebrick 
 				h2 = @package.name
+	.spacer-sm-50
+	.row
+		.col-sm-6
+			table.table.table-striped.text-uppercase
+				tr
+					th Number of Ratings
+					th = @package.ratings.count
+			- total_ratings =  @package.ratings.count
+			- one_star = (@package.ratings.where(overall: '1').count.to_f / total_ratings.to_f) * 100
+			- two_star = (@package.ratings.where(overall: '2').count.to_f / total_ratings.to_f) * 100
+			- three_star = (@package.ratings.where(overall: '3').count.to_f / total_ratings.to_f) * 100
+			- four_star = (@package.ratings.where(overall: '4').count.to_f / total_ratings.to_f) * 100
+			- five_star = (@package.ratings.where(overall: '5').count.to_f / total_ratings.to_f) * 100
+			.col-sm-2
+				p 1 stars
+			.col-sm-10
+ 				.progress
+					.progress-bar role="progressbar" style="width:#{one_star}%" 
+			.col-sm-2
+				p 2 stars
+			.col-sm-10
+				.progress
+					.progress-bar role="progressbar" style="width:#{two_star}%"
+			.col-sm-2
+				p 3 stars
+			.col-sm-10
+				.progress
+					.progress-bar role="progressbar" style="width:#{three_star}%"
+			.col-sm-2
+				p 4 stars
+			.col-sm-10
+				.progress
+					.progress-bar role="progressbar" style="width:#{four_star}%"
+			.col-sm-2
+				p 5 stars
+			.col-sm-10
+				.progress
+					.progress-bar role="progressbar" style="width:#{five_star}%"

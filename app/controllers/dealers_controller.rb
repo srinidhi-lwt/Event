@@ -7,7 +7,7 @@ class DealersController < ApplicationController
 	end
 
 	def block_date_for_package
-		@packages = current_user.packages
+		@packages = Package.where(user_id: current_user.id)
 	end
 
 	def block_date

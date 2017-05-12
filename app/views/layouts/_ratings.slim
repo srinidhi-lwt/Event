@@ -1,0 +1,31 @@
+#rating
+	.rating-form.text-center
+		= link_to 'X', '#', class: 'pull-right close-rating'
+		.ratings-quality
+			h3 Quality
+			- 5.times do |star|
+				= link_to '#', class: "quality-rating-#{star + 1}", data: { rating: star + 1 }
+					.glyphicon.glyphicon-star class="rating-star-#{star + 1}"
+		.rated-quality.hide
+
+		.ratings-quantity
+			h3 Quantity
+			- 5.times do |star|
+				= link_to '#', class: "quantity-rating-#{star + 1}", data: { rating: star + 1 }
+					.glyphicon.glyphicon-star class="rating-star-#{star + 1}"
+		.rated-quantity.hide
+
+		.ratings-time			
+			h3 Time
+			- 5.times do |star|
+				= link_to '#', class: "time-rating-#{star + 1}", data: { rating: star + 1 }
+					.glyphicon.glyphicon-star class="rating-star-#{star + 1}"
+		.rated-time.hide
+
+		= simple_form_for 'rating', url: package_ratings_path, html: { class: 'ratings-input-form' } do |f|
+		 	= f.input :quality, label: false, as: :hidden
+		 	= f.input :quantity, label: false, as: :hidden
+		 	= f.input :time, label: false, as: :hidden
+			= f.input :comment, label: false, placeholder: 'Review'
+			= f.input :order_id, label: false
+			= f.button :submit, 'Submit', class: 'btn-firebrick btn-block'

@@ -6,3 +6,8 @@
 		color: #b22222;
 	}
 }
+
+div[class*="rating-star"] {
+	font-size: 40px;
+	margin: 0 auto;
+}

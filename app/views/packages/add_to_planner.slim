@@ -22,5 +22,5 @@
 					th Booking Date
 					th = params[:booking_date]
 
-			= link_to 'Confirm', place_order_path(package: @package.id), method: :post, class: 'btn btn-firebrick btn-block'
+			= link_to 'Confirm', place_order_path(package: @package.id, booking_date: params[:booking_date]), method: :post, class: 'btn btn-firebrick btn-block'
 			= link_to 'Go to Packages', '#', class: 'btn btn-cancel btn-block text-uppercase'

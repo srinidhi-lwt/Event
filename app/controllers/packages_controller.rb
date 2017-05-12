@@ -36,7 +36,8 @@ class PackagesController < ApplicationController
 
 	def place_order
 		package = Package.find(params[:package])
-		order = Order.new(user_id: current_user.id, package_id: package.id)
+		package_booking_date = params[:booking_date]
+		order = Order.new(user_id: current_user.id, package_id: package.id, date_reserved: package_booking_date)
 		if order.save
 			flash[:success] = 'The order for this package has been successfully placed'
 			redirect_to my_planner_path
@@ -51,9 +52,23 @@ class PackagesController < ApplicationController
 	end
 
 	def ratings
+		order = Order.find(params[:rating][:order_id])
+		package = order.package
+		rating = package.ratings.build(ratings_params)
+		rating.user_id = current_user.id
+		if rating.save
+			flash[:notice] = 'Review added successfully'
+		else
+			flash[:error] = 'Sorry couldn not add review'
+		end
+		redirect_to my_planner_path
 	end
 	
 	private
+
+	def ratings_params
+		params.require(:rating).permit(:quality, :quantity, :time, :comment)
+	end
 
 	def package_params
 		params.require(:package).permit(:name, :occasion_id, :service_id, :price, :user_id)

@@ -1,7 +1,8 @@
 .box-type-1 {
+  @include responsive-property(width, (sm: 50%, xs: 100%));
+
   background-color: #fff;
   box-shadow: 0 0 80px rgba(61, 64, 80, 0.2);
-  width: 50%;
 
   &.is-padding {
   	padding: 30px;

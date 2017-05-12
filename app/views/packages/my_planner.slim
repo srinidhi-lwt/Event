@@ -1,10 +1,13 @@
 .container
-	h1 My Planner
+	.spacer-sm-50
 	- @orders.each do |order|
 		.row
 			.col-sm-6.column-content
-				- order.package.avatar.each do |avatar_url|
-					= cl_image_tag avatar_url
+				.column-hover-content
+					- order.package.avatar.each do |avatar_url|
+						= link_to '#', class: 'display-avatar'
+							= cl_image_tag avatar_url
+					= link_to 'Add Review', '#', class: 'navigate-btn btn-lg text-uppercase text-center rating-btn', data: { order: order.id }
 			end
 
 			.col-sm-6
@@ -28,3 +31,5 @@
 						th Status
 						th = order.is_confirmed? ? 'Confirmed' : 'Yet to be Confirmed' 
 		.spacer-sm-50
+
+= render 'layouts/ratings'

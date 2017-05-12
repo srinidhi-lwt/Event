@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get '/my-packages' => 'dealers#my_packages'
   post '/update_block_date' => 'dealers#update_block_date'
   post '/confirm-order' => 'dealers#confirm_order'
+  post '/package-ratings' => 'packages#ratings'
 
 
   # Example of regular route:

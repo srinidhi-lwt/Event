@@ -1,12 +1,9 @@
 .container
-	h2 = "Block date for package #{@package.name}"
+	h2.text-firebrick.text-center = "Block date for package #{@package.name}"
 .calendar-planner.text-center
 	= link_to 'X', :back, class: 'calendar-close pull-right'
-	.available-dates Available
-	.blocked-dates NOT Available
 
 	= month_calendar do |date|
-		
 	 	= link_to date.day, '#', class: 'block-date'
 	 	.get-date.hide
 	 		= date

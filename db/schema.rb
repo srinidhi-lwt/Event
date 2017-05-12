@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170506135142) do
+ActiveRecord::Schema.define(version: 20170511114047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,19 +81,34 @@ ActiveRecord::Schema.define(version: 20170506135142) do
     t.string   "name"
     t.string   "price"
     t.string   "block_dates"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.integer  "user_id"
     t.string   "avatar"
+    t.string   "minimum_number"
+    t.string   "maximum_number"
+    t.text     "description"
+    t.string   "specs_1"
+    t.string   "specs_2"
+    t.string   "specs_3"
+    t.string   "specs_4"
+    t.string   "specs_5"
+    t.string   "specs_6"
+    t.string   "specs_7"
+    t.string   "specs_8"
+    t.boolean  "eme_guarantee",  default: false
   end
 
   create_table "ratings", force: :cascade do |t|
-    t.string   "rating"
     t.string   "comment"
     t.integer  "package_id"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "quality"
+    t.string   "quantity"
+    t.string   "time"
+    t.string   "overall"
   end
 
   create_table "services", force: :cascade do |t|
